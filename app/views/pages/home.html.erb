@@ -1,0 +1,26 @@
+<br></br>
+<br></br>
+<div class ="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><h4> Appointments</h4></th>
+        <th><h4>Doctors</h4></th>
+        <th><h4>Customers Info</h4></th>
+        <th><h4>Visits</h4></th>
+     
+<!--         <th></th>
+        <th></th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= link_to 'New Appointment', new_appointment_path ,class: "btn btn-success btn-lg" %></td>
+        <td> <%= link_to 'Doctors', doctors_path ,class: "btn btn-success btn-lg" %></td>
+        <td><%= link_to 'Enter', new_visit_path ,class: "btn btn-success btn-lg" %> </td>
+        <td><%= link_to 'View', visits_path ,class: "btn btn-success btn-lg" %> </font></p></td>
+        </tr>
+  
+    </tbody>
+  </table>

@@ -1,0 +1,60 @@
+<%= form_for(@visit) do |f| %>
+  <% if @visit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+
+      <ul>
+      <% @visit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+ <div class ="container">
+      <div class="panel panel-default">
+        <div class="panel-body"> 
+              <div class="field">
+                  <%= f.label :doctor%><br>
+                  <%= collection_select(:visit, :doctor_id, Doctor.all, :id, :name) %>
+               </div>
+             <div class="form-group">
+                  <%= f.label :pet_name%><br>
+                  <%= f.text_field :pet_name , :autofocus => true ,class: "form-control" %>
+             </div>
+              <div class="form-group">
+                  <%= f.label :pet_type%><br>
+                  <%= f.text_field :pet_type , :autofocus => true ,class: "form-control" %>
+             </div>
+              <div class="form-group">
+                  <%= f.label :breed%><br>
+                  <%= f.text_area :breed , :autofocus => true ,class: "form-control" %>
+             </div>
+               <div class="form-group">
+                  <%= f.label :age%><br>
+                  <%= f.number_field :age , :autofocus => true ,class: "form-control" %>
+             </div>
+               <div class="form-group">
+                  <%= f.label :weight%><br>
+                  <%= f.text_field :weight , :autofocus => true ,class: "form-control" %>
+             </div>
+             <div class="field">
+                <%= f.label :last_visit %><br>
+                <%= f.date_select :last_visit %>
+             </div>
+              <div class="field">
+                <%= f.label :next_visit %><br>
+                <%= f.date_select :next_visit %>
+             </div>
+             <div>
+                  <input type="submit" class="btn btn-success " value="Create">
+              </div>
+
+           <%= link_to 'Back', visits_path %>
+         </div>
+      </div>
+  </div>
+  <% end %>

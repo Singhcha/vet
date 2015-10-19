@@ -1,0 +1,63 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<style>
+ .field :hover{
+border: 2px solid black;
+}
+.panel:hover{
+border: 2px solid black;
+}
+.panel-body:hover{
+border: 2px solid black;
+}
+</style>
+  <div class ="container">
+      <div class="panel panel-default" style="color:grey">
+        <div class="panel-body" > 
+
+             <div class="field">
+                 <%= f.label :doctor%><br>
+                 <%= collection_select(:appointment, :doctor_id, Doctor.all, :id, :name) %>
+            </div>
+            <div class="field">
+               <%= f.label :date_visit %><br>
+               <%= f.date_select :date_visit %>
+            </div>
+             <div class="form-group">
+                  <%= f.label :pet %><br>
+                  <%= f.text_field :pet , :autofocus => true ,class: "form-control" %>
+             </div>
+             <div class="form-group">
+                  <%= f.label :customer %><br>
+                  <%= f.text_field :customer , :autofocus => true ,class: "form-control" %>
+             </div>
+
+              <div class="field">
+                 <%= f.label :reminder %><br>
+                 <%= f.check_box :reminder %>
+              </div>
+
+             <div class="form-group">
+                  <%= f.label :reason_for_visit%><br>
+                  <%= f.text_area :reason_for_visit , :autofocus => true ,class: "form-control" %>
+             </div>
+            
+              <div>
+                  <input type="submit" class="btn btn-success " value="Create">
+              </div>
+
+           <%= link_to 'Back', appointments_path %>
+         </div>
+      </div>
+  </div>
+<% end %>
